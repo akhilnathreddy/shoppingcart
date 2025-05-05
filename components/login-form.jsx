@@ -46,6 +46,7 @@ export function LoginForm({
                 <Link href="/home">
                   <Button type="submit" className="w-full">
                     Login
+                    
                   </Button>
                   </Link>
                 <Button variant="outline" className="w-full">
