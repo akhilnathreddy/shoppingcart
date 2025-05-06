@@ -2,11 +2,13 @@
 
 import Navbar from "@/components/navbar";
 import ProductCard from "@/components/product";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -18,7 +20,7 @@ export default function Home() {
       .catch((error) => {
         console.error("Error fetching products:", error);
         setLoading(false);
-      });
+      });``
   }, []);
 
   if (loading) {
@@ -41,7 +43,7 @@ export default function Home() {
         <h2 className="text-2xl font-semibold mb-6 text-center">Featured Products</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <div onClick={() => router.push(`/productdetails/${product.id}`)} key={product.id}><ProductCard product={product} /></div>
           ))}
         </div>
       </div>
