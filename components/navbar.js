@@ -2,19 +2,21 @@ import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
 
 export default function Navbar() {
-    return (<>
-      <div className="flex justify-between m-4">
-        <div>
-          <b><h2>INSHOP</h2></b>
+  return (
+    <>
+      <header className="w-full bg-white shadow-md">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+          <h2 className="text-xl font-bold text-gray-800">INSHOP</h2>
+
+          <div className="flex items-center gap-4">
+            <ShoppingCart className="w-6 h-6 text-gray-700" />
+            <Link href="/login" className="text-base font-medium text-gray-700 hover:text-black">
+              Login
+            </Link>
+          </div>
         </div>
-        <div className="flex gap-4 mr-4">
-        <ShoppingCart />
-          <Link href="/login">
-            <h3>Login</h3>
-          </Link>
-        </div>
-      </div>
-      <hr></hr>
-      </>
-    );
-  }
+        <hr />
+      </header>
+    </>
+  );
+}
