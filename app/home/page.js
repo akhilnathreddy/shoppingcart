@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
-      .then((data) => {n
+      .then((data) => {
         setProducts(data);
         setLoading(false);
       })
