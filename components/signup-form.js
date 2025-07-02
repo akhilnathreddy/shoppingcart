@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 import { cn } from '@/lib/utils';
-import { login, loginWithGoogle } from '@/lib/auth';
+import { signup, loginWithGoogle } from '@/lib/auth';
 import { useAuthRedirect } from '@/hooks/useAuthRedirect';
 
 import {
@@ -19,19 +19,19 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 
-export function LoginForm({ className, ...props }) {
+export function SignupForm({ className, ...props }) {
   useAuthRedirect();
 
-  const [email, setEmail]       = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError]       = useState('');
+  const [error, setError] = useState('');
   const router = useRouter();
 
   async function handleSubmit(e) {
     e.preventDefault();
     setError('');
     try {
-      await login(email, password);
+      await signup(email, password);
       router.replace('/home');
     } catch (err) {
       setError(err.message);
@@ -52,15 +52,14 @@ export function LoginForm({ className, ...props }) {
     <div className={cn('flex flex-col gap-6', className)} {...props}>
       <Card>
         <CardHeader>
-          <CardTitle>Login to your account</CardTitle>
+          <CardTitle>Create a new account</CardTitle>
           <CardDescription>
-            Enter your email below to login to your account
+            Enter your email below to create your account
           </CardDescription>
         </CardHeader>
 
         <CardContent>
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-            {/* Email */}
             <div className="grid gap-3">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -68,35 +67,25 @@ export function LoginForm({ className, ...props }) {
                 type="email"
                 placeholder="m@example.com"
                 value={email}
-                onChange={e => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
 
-            {/* Password */}
             <div className="grid gap-3">
-              <div className="flex items-center">
-                <Label htmlFor="password">Password</Label>
-                <Link
-                  href="#"
-                  className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                >
-                  Forgot your password?
-                </Link>
-              </div>
+              <Label htmlFor="password">Password</Label>
               <Input
                 id="password"
                 type="password"
                 value={password}
-                onChange={e => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
 
-            {/* Action buttons */}
             <div className="flex flex-col gap-3">
               <Button type="submit" className="w-full">
-                Login
+                Sign up
               </Button>
               <Button
                 type="button"
@@ -104,7 +93,7 @@ export function LoginForm({ className, ...props }) {
                 className="w-full"
                 onClick={handleGoogle}
               >
-                Login with Google
+                Sign up with Google
               </Button>
             </div>
 
@@ -113,9 +102,9 @@ export function LoginForm({ className, ...props }) {
             )}
 
             <div className="mt-4 text-center text-sm">
-              Don&apos;t have an account?{' '}
-              <Link href="/signup" className="underline underline-offset-4">
-                Sign up
+              Already have an account?{' '}
+              <Link href="/login" className="underline underline-offset-4">
+                Log in
               </Link>
             </div>
           </form>
