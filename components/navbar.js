@@ -30,7 +30,7 @@ export default function Navbar() {
               onClick={logout}
               className="text-base font-medium text-gray-700 hover:text-black"
             >
-              Log&nbsp;out
+              Logout
             </button>
           ) : (
             <Link
