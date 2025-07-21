@@ -10,7 +10,7 @@ export function useAuthRedirect() {
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, user => {
-      if (user) router.replace('/home');
+      if (user) router.replace('/');
     });
     return () => unsub();
   }, [router]);

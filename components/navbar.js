@@ -20,7 +20,7 @@ export default function Navbar() {
     <header className="w-full bg-white shadow-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
         <h2 className="text-xl font-bold text-gray-800">
-          <Link href="/home">INSHOP</Link>
+          <Link href="/">INSHOP</Link>
         </h2>
 
         <div className="flex items-center gap-4">

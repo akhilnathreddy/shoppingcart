@@ -32,7 +32,7 @@ export function SignupForm({ className, ...props }) {
     setError('');
     try {
       await signup(email, password);
-      router.replace('/home');
+      router.replace('/');
     } catch (err) {
       setError(err.message);
     }
@@ -42,7 +42,7 @@ export function SignupForm({ className, ...props }) {
     setError('');
     try {
       await loginWithGoogle();
-      router.replace('/home');
+      router.replace('/');
     } catch (err) {
       setError(err.message);
     }

@@ -32,7 +32,7 @@ export function LoginForm({ className, ...props }) {
     setError('');
     try {
       await login(email, password);
-      router.replace('/home');
+      router.replace('/');
     } catch (err) {
       setError(err.message);
     }
@@ -42,7 +42,7 @@ export function LoginForm({ className, ...props }) {
     setError('');
     try {
       await loginWithGoogle();
-      router.replace('/home');
+      router.replace('/');
     } catch (err) {
       setError(err.message);
     }
@@ -93,7 +93,6 @@ export function LoginForm({ className, ...props }) {
               />
             </div>
 
-            {/* Action buttons */}
             <div className="flex flex-col gap-3">
               <Button type="submit" className="w-full">
                 Login
