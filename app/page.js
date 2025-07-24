@@ -2,6 +2,7 @@
 
 import Navbar from "@/components/navbar";
 import ProductCard from "@/components/product";
+import { CartProvider } from "@/lib/Cartcontext";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -28,6 +29,7 @@ export default function Home() {
   }
 
   return (
+    <CartProvider>
     <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
 
@@ -48,5 +50,6 @@ export default function Home() {
         </div>
       </div>
     </div>
+    </CartProvider>
   );
 }

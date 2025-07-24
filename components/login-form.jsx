@@ -60,7 +60,6 @@ export function LoginForm({ className, ...props }) {
 
         <CardContent>
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-            {/* Email */}
             <div className="grid gap-3">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -72,8 +71,6 @@ export function LoginForm({ className, ...props }) {
                 required
               />
             </div>
-
-            {/* Password */}
             <div className="grid gap-3">
               <div className="flex items-center">
                 <Label htmlFor="password">Password</Label>

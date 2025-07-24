@@ -1,6 +1,8 @@
 "use client"
 
-import ProductDetailCard from "@/components/productlist";
+import { CartModal } from "@/components/cartModal";
+import { ProductDetailCard } from "@/components/productlist";
+import { CartProvider } from "@/lib/Cartcontext";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -22,8 +24,11 @@ export default function Product() {
       }
     
       return (
+        <CartProvider>
         <div className="p-4">
           <ProductDetailCard product={product} />
+          <CartModal />
         </div>
+        </CartProvider>
       );
     }
